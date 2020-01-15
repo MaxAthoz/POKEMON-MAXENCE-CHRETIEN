@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PokemonService} from '../../services/pokemon.service';
 import {Pokemon} from '../models/pokemon.model';
 import {ActivatedRoute} from '@angular/router';
@@ -11,11 +11,20 @@ import {Location} from '@angular/common';
 })
 export class PokemonDetailComponent implements OnInit {
   @Input() pokemon: Pokemon;
-  constructor(private pokemonService: PokemonService, private route: ActivatedRoute, private location: Location) { }
+
+  constructor(private pokemonService: PokemonService, private route: ActivatedRoute, private location: Location) {
+    this.pokemonService = pokemonService;
+  }
 
 
   ngOnInit() {
-    this.getPokemon();
+    if (this.pokemonService.selectedPokemon) {
+      this.getPokemonSelected(this.pokemonService.selectedPokemon.id);
+    }
+  }
+
+  getPokemonSelected(id: number) {
+    this.pokemonService.getPokemon(id).subscribe(pokemon => this.pokemon = pokemon);
   }
 
   getPokemon() {
@@ -23,11 +32,13 @@ export class PokemonDetailComponent implements OnInit {
     this.pokemonService.getPokemon(id).subscribe(pokemon => this.pokemon = pokemon);
   }
 
-  goBack() {
-    this.location.back();
+  getPokemonById(id) {
+    this.pokemonService.getPokemon(id).subscribe(pokemon => this.pokemon = pokemon);
   }
+
+
   play(playSong: HTMLAudioElement) {
-  playSong.play();
+    playSong.play();
   }
 
 }

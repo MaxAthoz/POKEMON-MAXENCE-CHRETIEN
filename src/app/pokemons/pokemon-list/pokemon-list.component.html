@@ -1,6 +1,8 @@
-<h1> Liste des Pokemons</h1>
-<mat-list *ngIf="pokemons">
-  <mat-list-item (scrolled)="onScroll()" *ngFor="let pokemon of pokemons.data " infiniteScroll  routerLink="/detail/{{pokemon.id}}">
+<mat-form-field>
+  <input matInput placeholder="Recherche" (keyup)="searching($event.target.value)">
+</mat-form-field>
+<mat-list  class="my-list" *ngIf="pokemons" (scrolled)="onScroll()" infiniteScroll [scrollWindow]="false">
+  <mat-list-item  *ngFor="let pokemon of pokemons "   (click)="setSelectedPokemon(pokemon)"  >
     <img matListAvatar src="./assets/img/sprites/{{pokemon.id}}.png">
     {{ pokemon.id }}.
     {{ pokemon.name }}

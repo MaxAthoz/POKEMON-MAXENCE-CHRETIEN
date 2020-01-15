@@ -1,62 +1,54 @@
-<h1>Descriptif du Pokémon</h1>
+<h1 class="center">Descriptif du Pokémon</h1>
 <mat-card *ngIf="pokemon" class="detailPokemon">
 
 
-  <mat-grid-list cols = "2" rowHeight="16.8%">
+  <mat-grid-list cols="2" rowHeight="150px">
     <mat-grid-tile
-      [colspan] = "1"
-      [rowspan] = "3">
-      <img matListAvatar class="artwork" src="assets/img/official-artwork/{{pokemon.id }}.png">
+      [colspan]="1"
+      [rowspan]="2">
+      <div>
+          <img matListAvatar class="artwork" src="assets/img/official-artwork/{{pokemon.id }}.png">
+
+          <div class="center"><span>No: </span>{{pokemon.id | number:'3.0-0'}}</div>
+      </div>
     </mat-grid-tile>
 
     <mat-grid-tile
-      [colspan] = "1"
-      [rowspan] = "1">
-
+      [colspan]="1"
+      [rowspan]="2" class="caract">
+      <mat-list>
+        <mat-list-item>
       <audio autoplay #playSong>
-        <source src="./assets/audio/{{pokemon.id}}.mp3" type="audio/mp3" />
+        <source src="./assets/audio/{{pokemon.id}}.mp3" type="audio/mp3"/>
       </audio>
       <div>{{pokemon.name}} </div>
       <mat-icon (click)="play(playSong)">play_circle_outline</mat-icon>
-    </mat-grid-tile>
-
-    <mat-grid-tile
-      [colspan] = "1"
-      [rowspan] = "1">
+        </mat-list-item>
+        <mat-list-item>
       <mat-chip-list class="types">
         <mat-chip *ngFor="let types of pokemon.types">{{types}}</mat-chip>
       </mat-chip-list>
+        </mat-list-item>
+        <mat-list-item>
+      <div><span>Taille: </span>{{pokemon.height | number:'1.1-1'}} m</div>
+        </mat-list-item>
+        <mat-list-item>
+      <div><span>Poids: </span>{{pokemon.weight | number:'1.1-1'}} Kg</div>
+        </mat-list-item>
+      </mat-list>
     </mat-grid-tile>
 
-    <mat-grid-tile
-      [colspan] = "1"
-      [rowspan] = "1">
-      <div ><span>Taille: </span>{{pokemon.height | number:'1.1-1'}} m</div>
-    </mat-grid-tile>
 
     <mat-grid-tile
-      [colspan] = "1"
-      [rowspan] = "1">
-      <div ><span>No: </span>{{pokemon.id | number:'3.0-0'}}</div>
-    </mat-grid-tile>
+        [colspan]="2"
+        [rowspan]="1">
 
-    <mat-grid-tile
-      [colspan] = "1"
-      [rowspan] = "1">
-      <div ><span>Poids: </span>{{pokemon.weight | number:'1.1-1'}} Kg</div>
-    </mat-grid-tile>
+      <div>
+        <div class="description">{{pokemon.description }}</div>
+      </div>
+      </mat-grid-tile>
 
-    <mat-grid-tile
-      [colspan] = "2"
-      [rowspan] = "1">
-      <div class="description">{{pokemon.description }}</div>
-    </mat-grid-tile>
 
-    <mat-grid-tile
-      [colspan] = "2"
-      [rowspan] = "1">
-      <button mat-raised-button  (click)="goBack()">Retour</button>
-    </mat-grid-tile>
   </mat-grid-list>
 
 </mat-card>

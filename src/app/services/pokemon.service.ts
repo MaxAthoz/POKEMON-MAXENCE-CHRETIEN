@@ -13,12 +13,14 @@ export class PokemonService {
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
+  selectedPokemon: Pokemon;
 
   constructor(private http: HttpClient) {
   }
 
-  getPokemons(): Observable<PagedData<Pokemon>> {
-    return this.http.get<PagedData<Pokemon>>(this.pokemonsUrl).pipe(
+  getPokemons(offset, limit): Observable<PagedData<Pokemon>> {
+    const params = new HttpParams().set('offset', offset).set('limit', limit);
+    return this.http.get<PagedData<Pokemon>>(this.pokemonsUrl, {params}).pipe(
       catchError(this.handleError<PagedData<Pokemon>>('getPokemons'))
     );
   }
@@ -27,6 +29,13 @@ export class PokemonService {
     const url: string = this.pokemonsUrl + '/' + id;
     return this.http.get<Pokemon>(url).pipe(
       catchError(this.handleError<Pokemon>('getPokemon id=${id}'))
+    );
+  }
+
+  getPokemonSearch(recherche: string): Observable<PagedData<Pokemon>> {
+    const url: string = this.pokemonsUrl + '?search=' + recherche;
+    return this.http.get<PagedData<Pokemon>>(url, ).pipe(
+      catchError(this.handleError<PagedData<Pokemon>>('getPokemonSearch'))
     );
   }
 
