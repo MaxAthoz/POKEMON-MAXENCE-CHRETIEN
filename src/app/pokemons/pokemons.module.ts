@@ -10,12 +10,13 @@ import {MatChipsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSi
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { PokedexComponent } from './pokedex/pokedex.component';
 import {FormsModule} from '@angular/forms';
+import { ConnectComponent } from './connect/connect.component';
 
 
 
 
 @NgModule({
-  declarations: [PokemonListComponent, PokemonDetailComponent, PokedexComponent],
+  declarations: [PokemonListComponent, PokemonDetailComponent, PokedexComponent, ConnectComponent],
   imports: [
     CommonModule,
     MatListModule,

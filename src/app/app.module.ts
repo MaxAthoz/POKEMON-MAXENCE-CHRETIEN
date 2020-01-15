@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {PokemonsModule} from './pokemons/pokemons.module';
 import {HttpClientModule} from '@angular/common/http';
+import { ConnectComponent } from './connect/connect.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ConnectComponent,
   ],
   imports: [
     BrowserModule,
