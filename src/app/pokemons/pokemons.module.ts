@@ -6,17 +6,18 @@ import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.componen
 import {AppRoutingModule} from '../app-routing.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatChipsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSidenavModule} from '@angular/material';
+import {MatButtonModule, MatChipsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSidenavModule} from '@angular/material';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { PokedexComponent } from './pokedex/pokedex.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ConnectComponent } from './connect/connect.component';
+import { MyTeamComponent } from './my-team/my-team.component';
 
 
 
 
 @NgModule({
-  declarations: [PokemonListComponent, PokemonDetailComponent, PokedexComponent, ConnectComponent],
+  declarations: [PokemonListComponent, PokemonDetailComponent, PokedexComponent, ConnectComponent, MyTeamComponent],
   imports: [
     CommonModule,
     MatListModule,
@@ -29,7 +30,9 @@ import { ConnectComponent } from './connect/connect.component';
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatButtonModule
   ]
 })
 export class PokemonsModule { }

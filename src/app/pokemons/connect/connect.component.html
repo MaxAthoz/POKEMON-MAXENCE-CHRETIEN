@@ -1,1 +1,11 @@
-<p>connect works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)" class="example-container">
+  <mat-form-field>
+    <input id="email" type="email" matInput formControlName="email" placeholder="Email"/>
+  </mat-form-field>
+  <mat-form-field>
+    <input  id="password" type="password" matInput formControlName="password" placeholder="Mot de passe"/>
+  </mat-form-field>
+  <div>
+    <button mat-button type="submit">Login</button>
+  </div>
+</form>
