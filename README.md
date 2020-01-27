@@ -1,3 +1,7 @@
+Hello , Je n'ai pas trop avancé sur le TP4 par manque de temps, car on avait dit qu'il été en bonus et que j'ai bossé d'autre matière pendant mon temps libre , même si j'ai appris que certains l'avaient travaillé énormemement pendant leurs temps libres, il été trop tard pour moi de le continuer.
+
+Merci de votre compréhension
+
 # Pokemon
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
